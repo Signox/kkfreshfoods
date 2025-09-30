@@ -1,0 +1,1502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KK Fresh Foods - Premium Fresh Fruits in Uganda</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+                        url('https://images.unsplash.com/photo-1619566636858-adf3ef46400b?w=1920&h=1080&fit=crop&q=80') center/cover no-repeat fixed;
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+            object-fit: cover;
+            display: none;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 0;
+            display: none;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 0 20px;
+            animation: fadeInUp 1s ease-out;
+            position: relative;
+            z-index: 1;
+        }
+
+        .organic-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.4);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 18px 45px;
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(255, 107, 53, 0.4);
+            cursor: pointer;
+            border: none;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(255, 107, 53, 0.6);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #ff6b35;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+
+        .nav-links a:hover {
+            color: #ff6b35;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            width: 28px;
+            height: 3px;
+            background: #ff6b35;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(8px, -8px);
+        }
+
+        /* Products Section */
+        .products {
+            padding: 100px 50px;
+            background: #f9f9f9;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 60px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 25px;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        .card-description {
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .card-price {
+            font-size: 1.3rem;
+            color: #ff6b35;
+            font-weight: 700;
+        }
+
+        /* About Section */
+        .about {
+            padding: 100px 50px;
+            background: white;
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .about-content {
+            flex: 1;
+        }
+
+        .about-image {
+            flex: 1;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Video Section */
+        .video-section {
+            padding: 100px 50px;
+            background: #f9f9f9;
+            text-align: center;
+        }
+
+        .video-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
+        }
+
+        .video-container video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 50px;
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            text-align: center;
+            color: white;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .cta-button-white {
+            background: white;
+            color: #ff6b35;
+        }
+
+        .cta-button-white:hover {
+            background: #f9f9f9;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #2c3e50 0%, #1a252f 100%);
+            color: white;
+            padding: 60px 50px 30px;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            color: #ff6b35;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+
+        .footer-section p,
+        .footer-section ul {
+            color: #ddd;
+            line-height: 1.8;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section ul li a:hover {
+            color: #ff6b35;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 107, 53, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .social-icon:hover {
+            background: #ff6b35;
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 30px;
+            text-align: center;
+            color: #bbb;
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #ff6b35;
+            margin-bottom: 15px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .contact-icon {
+            font-size: 1.2rem;
+        }
+
+        /* Scroll to Top Button */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(255, 107, 53, 0.6);
+        }
+
+        .scroll-top:active {
+            transform: translateY(-2px);
+        }
+
+        /* Google Sign-In Button */
+        .google-signin-btn {
+            width: 100%;
+            padding: 12px 24px;
+            background: white;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            font-size: 1rem;
+            font-weight: 500;
+            color: #333;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .google-signin-btn:hover {
+            background: #f8f9fa;
+            border-color: #ccc;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .google-signin-btn svg {
+            flex-shrink: 0;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            max-width: 500px;
+            width: 90%;
+            animation: slideIn 0.3s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal h2 {
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .close-btn {
+            float: right;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #999;
+            line-height: 1;
+        }
+
+        .close-btn:hover {
+            color: #333;
+        }
+
+        /* Payment Methods Styling */
+        .payment-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .payment-option {
+            position: relative;
+        }
+
+        .payment-option input[type="radio"] {
+            position: absolute;
+            opacity: 0;
+        }
+
+        .payment-label {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .payment-label:hover {
+            border-color: #ff6b35;
+            background: #fff5f2;
+        }
+
+        .payment-option input[type="radio"]:checked + .payment-label {
+            border-color: #ff6b35;
+            background: #fff5f2;
+            box-shadow: 0 4px 12px rgba(255, 107, 53, 0.2);
+        }
+
+        .payment-icon {
+            font-size: 2rem;
+            min-width: 50px;
+            text-align: center;
+        }
+
+        .payment-text {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .payment-text strong {
+            color: #2c3e50;
+            font-size: 1rem;
+        }
+
+        .payment-text span {
+            color: #666;
+            font-size: 0.85rem;
+        }
+
+        /* Locations Section */
+        .locations-section {
+            padding: 100px 50px;
+            background: white;
+        }
+
+        .locations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+            margin-top: 40px;
+        }
+
+        .location-card {
+            background-size: cover;
+            background-position: center;
+            border-radius: 15px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            position: relative;
+            min-height: 280px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            overflow: hidden;
+        }
+
+        .location-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7));
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+
+        .location-card:hover::before {
+            background: linear-gradient(to bottom, rgba(255,107,53,0.4), rgba(255,107,53,0.8));
+        }
+
+        .location-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3);
+            border-color: #ff6b35;
+        }
+
+        .location-card > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        .location-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.5));
+        }
+
+        .location-name {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .location-details {
+            color: white;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .location-badge {
+            display: inline-block;
+            background: rgba(255, 107, 53, 0.9);
+            color: white;
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-top: 10px;
+            backdrop-filter: blur(5px);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            nav {
+                padding: 15px 20px;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                right: -100%;
+                width: 70%;
+                height: calc(100vh - 70px);
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                padding: 30px;
+                gap: 20px;
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+                transition: right 0.3s ease;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .nav-links a {
+                font-size: 1.2rem;
+                padding: 15px 0;
+                border-bottom: 1px solid #eee;
+            }
+
+            .about {
+                flex-direction: column;
+            }
+
+            .cards-container {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .scroll-top {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">KK Fresh Foods</div>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home" onclick="closeNav()">Home</a></li>
+            <li><a href="#products" onclick="closeNav()">Products</a></li>
+            <li><a href="#about" onclick="closeNav()">About</a></li>
+            <li><a href="#contact" onclick="closeNav()">Contact</a></li>
+            <li><a onclick="openSupplierModal(); closeNav();">Suppliers</a></li>
+            <li><a onclick="openAdminModal(); closeNav();">Admin</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero" id="home">
+        <video autoplay muted loop playsinline class="hero-video">
+            <source src="https://player.vimeo.com/external/419337094.sd.mp4?s=f5b6782b8a8b1e4e2d073c9d825c0e0b5c71e1c0&profile_id=165" type="video/mp4">
+            <source src="https://cdn.pixabay.com/vimeo/394387053/fruits-33458.mp4?width=1280&hash=ebb6e94f4e0c15edafad521dd938e19e2c882db4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="organic-badge">🌿 100% Certified Organic</div>
+            <h1>Fresh from Farm to Table</h1>
+            <p>Premium organic fruits delivered fresh across Uganda</p>
+            <button class="cta-button" onclick="openModal()">Place Your Order</button>
+        </div>
+    </section>
+
+    <section class="products" id="products">
+        <h2 class="section-title">Our Organic Fresh Products</h2>
+        <p class="section-subtitle">🌿 100% Certified Organic | Pesticide-Free | Naturally Grown | Handpicked with Care</p>
+        
+        <div class="cards-container">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1601493700631-2b16ec4b4716?w=400&h=300&fit=crop" alt="Mangoes" class="card-image">
+                <div class="card-content">
+                    <div class="organic-badge" style="font-size: 0.75rem; padding: 5px 12px; margin-bottom: 10px;">🌿 ORGANIC</div>
+                    <h3 class="card-title">Fresh Organic Mangoes</h3>
+                    <p class="card-description">100% organic, sweet, juicy mangoes grown without pesticides. Sourced from certified organic farms in Uganda.</p>
+                    <p class="card-price">UGX 15,000/kg</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1603833665858-e61d17a86224?w=400&h=300&fit=crop" alt="Pineapples" class="card-image">
+                <div class="card-content">
+                    <div class="organic-badge" style="font-size: 0.75rem; padding: 5px 12px; margin-bottom: 10px;">🌿 ORGANIC</div>
+                    <h3 class="card-title">Organic Golden Pineapples</h3>
+                    <p class="card-description">Naturally grown tropical sweetness. Our organic pineapples are chemical-free and handpicked at peak ripeness.</p>
+                    <p class="card-price">UGX 8,000/piece</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=400&h=300&fit=crop" alt="Bananas" class="card-image">
+                <div class="card-content">
+                    <div class="organic-badge" style="font-size: 0.75rem; padding: 5px 12px; margin-bottom: 10px;">🌿 ORGANIC</div>
+                    <h3 class="card-title">Organic Bananas</h3>
+                    <p class="card-description">100% organic bananas rich in natural potassium and nutrients. Grown sustainably without harmful chemicals.</p>
+                    <p class="card-price">UGX 5,000/bunch</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1619566636858-adf3ef46400b?w=400&h=300&fit=crop" alt="Passion Fruits" class="card-image">
+                <div class="card-content">
+                    <div class="organic-badge" style="font-size: 0.75rem; padding: 5px 12px; margin-bottom: 10px;">🌿 ORGANIC</div>
+                    <h3 class="card-title">Organic Passion Fruits</h3>
+                    <p class="card-description">Pesticide-free passion fruits bursting with natural vitamins. Perfect for organic juices and healthy desserts.</p>
+                    <p class="card-price">UGX 12,000/kg</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1587049352846-4a222e784d38?w=400&h=300&fit=crop" alt="Avocados" class="card-image">
+                <div class="card-content">
+                    <div class="organic-badge" style="font-size: 0.75rem; padding: 5px 12px; margin-bottom: 10px;">🌿 ORGANIC</div>
+                    <h3 class="card-title">Organic Fresh Avocados</h3>
+                    <p class="card-description">Certified organic, creamy avocados grown naturally. No synthetic fertilizers or harmful pesticides used.</p>
+                    <p class="card-price">UGX 3,000/piece</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1600132806608-231446b2e7af?w=400&h=300&fit=crop" alt="Watermelons" class="card-image">
+                <div class="card-content">
+                    <div class="organic-badge" style="font-size: 0.75rem; padding: 5px 12px; margin-bottom: 10px;">🌿 ORGANIC</div>
+                    <h3 class="card-title">Organic Sweet Watermelons</h3>
+                    <p class="card-description">100% organic watermelons grown with natural farming methods. Pure refreshment without chemicals.</p>
+                    <p class="card-price">UGX 20,000/piece</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1587334206799-c1e1c61b0e37?w=400&h=300&fit=crop" alt="Papaya" class="card-image">
+                <div class="card-content">
+                    <div class="organic-badge" style="font-size: 0.75rem; padding: 5px 12px; margin-bottom: 10px;">🌿 ORGANIC</div>
+                    <h3 class="card-title">Organic Papaya</h3>
+                    <p class="card-description">Naturally ripened organic papayas packed with enzymes and vitamins. Grown without synthetic chemicals.</p>
+                    <p class="card-price">UGX 6,000/piece</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1577234286642-fc512a5f8f11?w=400&h=300&fit=crop" alt="Strawberries" class="card-image">
+                <div class="card-content">
+                    <div class="organic-badge" style="font-size: 0.75rem; padding: 5px 12px; margin-bottom: 10px;">🌿 ORGANIC</div>
+                    <h3 class="card-title">Organic Strawberries</h3>
+                    <p class="card-description">Premium organic strawberries grown in pesticide-free conditions. Sweet, juicy, and completely natural.</p>
+                    <p class="card-price">UGX 18,000/kg</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="about-content">
+            <h2 class="section-title" style="text-align: left;">Why Choose KK Fresh Foods?</h2>
+            <div class="organic-badge" style="margin-bottom: 20px;">🌿 Certified Organic Producer</div>
+            <p>At KK Fresh Foods, we're passionate about bringing the freshest, highest-quality <strong>100% certified organic fruits</strong> directly from Ugandan farms to your table. Our commitment to organic farming, sustainability, and customer satisfaction sets us apart.</p>
+            <br>
+            <p>We work exclusively with certified organic farmers who use <strong>zero pesticides, herbicides, or synthetic fertilizers</strong>. Every fruit is grown naturally using traditional, sustainable methods that respect the environment and your health.</p>
+            <br>
+            <p><strong>Our Organic Promise:</strong> All our produce is certified organic, tested for quality, and completely free from harmful chemicals. With same-day delivery across Kampala, pure organic goodness is just a click away.</p>
+        </div>
+        <div class="about-image">
+            <img src="https://images.unsplash.com/photo-1488459716781-31db52582fe9?w=600&h=600&fit=crop" alt="Fresh Fruits">
+        </div>
+    </section>
+
+    <section class="locations-section">
+        <h2 class="section-title">Where to Find Our Products</h2>
+        <p class="section-subtitle">KK Fresh Foods organic produce is available at premium locations across Uganda</p>
+        
+        <div class="locations-grid">
+            <div class="location-card" style="background-image: url('https://images.unsplash.com/photo-1604719312566-8912e9227c6a?w=600&h=400&fit=crop');">
+                <div class="location-icon">🏪</div>
+                <h3 class="location-name">Quality Supermarkets</h3>
+                <p class="location-details">
+                    Find us at all Quality Supermarket branches in Kampala, Entebbe, and Jinja
+                </p>
+                <span class="location-badge">Premium Retailer</span>
+            </div>
+
+            <div class="location-card" style="background-image: url('https://images.unsplash.com/photo-1583258292688-d0213dc5a3a8?w=600&h=400&fit=crop');">
+                <div class="location-icon">🛒</div>
+                <h3 class="location-name">Carrefour Uganda</h3>
+                <p class="location-details">
+                    Available at Carrefour stores in Oasis Mall and Village Mall Kampala
+                </p>
+                <span class="location-badge">Major Outlet</span>
+            </div>
+
+            <div class="location-card" style="background-image: url('https://images.unsplash.com/photo-1578916171728-46686eac8d58?w=600&h=400&fit=crop');">
+                <div class="location-icon">🏬</div>
+                <h3 class="location-name">Shoprite Stores</h3>
+                <p class="location-details">
+                    Stock available at Shoprite Lugogo Mall and Victoria Mall locations
+                </p>
+                <span class="location-badge">Nationwide Chain</span>
+            </div>
+
+            <div class="location-card" style="background-image: url('https://images.unsplash.com/photo-1488459716781-31db52582fe9?w=600&h=400&fit=crop');">
+                <div class="location-icon">🌾</div>
+                <h3 class="location-name">Organic Markets</h3>
+                <p class="location-details">
+                    Every Saturday at Nakasero Market Organic Section and Acacia Farmer's Market
+                </p>
+                <span class="location-badge">Fresh from Farm</span>
+            </div>
+
+            <div class="location-card" style="background-image: url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&h=400&fit=crop');">
+                <div class="location-icon">🏨</div>
+                <h3 class="location-name">Hotels & Restaurants</h3>
+                <p class="location-details">
+                    Supplying premium hotels and organic restaurants in Kampala and beyond
+                </p>
+                <span class="location-badge">B2B Partner</span>
+            </div>
+
+            <div class="location-card" style="background-image: url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600&h=400&fit=crop');">
+                <div class="location-icon">🚚</div>
+                <h3 class="location-name">Home Delivery</h3>
+                <p class="location-details">
+                    Order online for same-day delivery to your doorstep anywhere in Kampala
+                </p>
+                <span class="location-badge">Direct Service</span>
+            </div>
+
+            <div class="location-card" style="background-image: url('https://images.unsplash.com/photo-1542838132-92c53300491e?w=600&h=400&fit=crop');">
+                <div class="location-icon">🏪</div>
+                <h3 class="location-name">Local Grocery Stores</h3>
+                <p class="location-details">
+                    Available at select independent grocery stores and health food shops citywide
+                </p>
+                <span class="location-badge">Community Partner</span>
+            </div>
+
+            <div class="location-card" style="background-image: url('https://images.unsplash.com/photo-1595855759920-86582396756a?w=600&h=400&fit=crop');">
+                <div class="location-icon">🌍</div>
+                <h3 class="location-name">Export Markets</h3>
+                <p class="location-details">
+                    Exporting certified organic fruits to Kenya, Rwanda, and South Sudan
+                </p>
+                <span class="location-badge">Regional Supplier</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="video-section">
+        <h2 class="section-title">See Our Fresh Fruits Journey</h2>
+        <p class="section-subtitle">From our farms to your table - watch how we ensure quality every step of the way</p>
+        <div class="video-container">
+            <video controls poster="https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=800&h=450&fit=crop">
+                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </section>
+
+    <section class="cta-section" id="contact">
+        <h2>Ready to Order Organic Fresh Fruits?</h2>
+        <p>Get 100% certified organic, pesticide-free fruits delivered to your doorstep today!</p>
+        <button class="cta-button cta-button-white" onclick="openModal()">Place Your Order Now</button>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">KK Fresh Foods</div>
+                <p>Your trusted source for 100% certified organic fresh fruits in Uganda. Farm-fresh quality delivered to your doorstep.</p>
+                <div class="social-links">
+                    <div class="social-icon">📘</div>
+                    <div class="social-icon">📷</div>
+                    <div class="social-icon">🐦</div>
+                    <div class="social-icon">📱</div>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#products">Our Products</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a onclick="openSupplierModal()">Become a Supplier</a></li>
+                    <li><a href="#contact">Place an Order</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Our Products</h3>
+                <ul>
+                    <li>Organic Mangoes</li>
+                    <li>Organic Pineapples</li>
+                    <li>Organic Bananas</li>
+                    <li>Organic Avocados</li>
+                    <li>Organic Passion Fruits</li>
+                    <li>View All Products →</li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <div class="contact-item">
+                    <span class="contact-icon">📍</span>
+                    <span>Plot 123, Kampala Road<br>Kampala, Uganda</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">📞</span>
+                    <span>+256 700 000 000</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">📧</span>
+                    <span>info@kkfreshfoods.ug</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">🕐</span>
+                    <span>Mon-Sat: 7AM - 8PM<br>Sunday: 8AM - 6PM</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 KK Fresh Foods Uganda. All rights reserved.</p>
+            <p style="margin-top: 10px;">🌿 Certified Organic | Pesticide-Free | Supporting Local Farmers</p>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+
+    <!-- Admin Login Modal -->
+    <div class="modal" id="adminModal">
+        <div class="modal-content" style="max-width: 450px;">
+            <span class="close-btn" onclick="closeAdminModal()">&times;</span>
+            <h2>🔐 Admin Login</h2>
+            <p style="color: #666; margin-bottom: 25px;">Access the KK Fresh Foods admin dashboard</p>
+            
+            <!-- Google Sign-In Button -->
+            <div style="margin-bottom: 25px;">
+                <button type="button" class="google-signin-btn" onclick="handleGoogleSignIn()">
+                    <svg width="18" height="18" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+                        <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+                        <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+                        <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
+                        <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+                        <path fill="none" d="M0 0h48v48H0z"/>
+                    </svg>
+                    <span>Continue with Google</span>
+                </button>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 25px;">
+                <div style="flex: 1; height: 1px; background: #ddd;"></div>
+                <span style="color: #999; font-size: 0.9rem;">OR</span>
+                <div style="flex: 1; height: 1px; background: #ddd;"></div>
+            </div>
+
+            <form id="adminForm">
+                <div class="form-group">
+                    <label>Username or Email</label>
+                    <input type="text" required placeholder="Enter your username or email" autocomplete="username">
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" required placeholder="Enter your password" autocomplete="current-password">
+                </div>
+                <div class="form-group" style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;">
+                    <label style="display: flex; align-items: center; gap: 8px; font-weight: normal; margin: 0;">
+                        <input type="checkbox"> Remember me
+                    </label>
+                    <a href="#" style="color: #ff6b35; text-decoration: none; font-size: 0.9rem;" onclick="alert('Please contact IT support at support@kkfreshfoods.ug'); return false;">Forgot password?</a>
+                </div>
+                <button type="submit" class="cta-button" style="width: 100%; margin-top: 10px;">Login to Dashboard</button>
+                <p style="text-align: center; margin-top: 20px; color: #666; font-size: 0.9rem;">
+                    Need access? Contact your system administrator
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Google Sign-In Library -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+
+    <!-- Order Modal -->
+    <div class="modal" id="orderModal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2>Place Your Order</h2>
+            <form id="orderForm">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" required placeholder="Enter your name">
+                </div>
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="tel" required placeholder="+256 700 000 000">
+                </div>
+                <div class="form-group">
+                    <label>Delivery Address</label>
+                    <input type="text" required placeholder="Enter delivery address">
+                </div>
+                <div class="form-group">
+                    <label>Select Product</label>
+                    <select required>
+                        <option value="">Choose a product</option>
+                        <option>Fresh Mangoes</option>
+                        <option>Golden Pineapples</option>
+                        <option>Organic Bananas</option>
+                        <option>Passion Fruits</option>
+                        <option>Fresh Avocados</option>
+                        <option>Sweet Watermelons</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Quantity</label>
+                    <input type="number" required min="1" placeholder="Enter quantity">
+                </div>
+                <div class="form-group">
+                    <label>Additional Notes</label>
+                    <textarea placeholder="Any special requests or delivery instructions?"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Payment Method</label>
+                    <div class="payment-methods">
+                        <div class="payment-option">
+                            <input type="radio" id="mobileMoney" name="payment" value="mobile" checked>
+                            <label for="mobileMoney" class="payment-label">
+                                <div class="payment-icon">📱</div>
+                                <div class="payment-text">
+                                    <strong>Mobile Money</strong>
+                                    <span>MTN & Airtel Money</span>
+                                </div>
+                            </label>
+                        </div>
+                        <div class="payment-option">
+                            <input type="radio" id="card" name="payment" value="card">
+                            <label for="card" class="payment-label">
+                                <div class="payment-icon">💳</div>
+                                <div class="payment-text">
+                                    <strong>Card Payment</strong>
+                                    <span>Visa, Mastercard</span>
+                                </div>
+                            </label>
+                        </div>
+                        <div class="payment-option">
+                            <input type="radio" id="cash" name="payment" value="cash">
+                            <label for="cash" class="payment-label">
+                                <div class="payment-icon">💵</div>
+                                <div class="payment-text">
+                                    <strong>Cash on Delivery</strong>
+                                    <span>Pay when you receive</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="cta-button" style="width: 100%;">Submit Order</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Supplier Registration Modal -->
+    <div class="modal" id="supplierModal">
+        <div class="modal-content" style="max-width: 600px;">
+            <span class="close-btn" onclick="closeSupplierModal()">&times;</span>
+            <h2>🌿 Supplier Registration</h2>
+            <p style="color: #666; margin-bottom: 20px;">Join KK Fresh Foods as an organic produce supplier</p>
+            <form id="supplierForm">
+                <div class="form-group">
+                    <label>Farm/Business Name *</label>
+                    <input type="text" required placeholder="Enter your farm or business name">
+                </div>
+                <div class="form-group">
+                    <label>Contact Person *</label>
+                    <input type="text" required placeholder="Full name of contact person">
+                </div>
+                <div class="form-group">
+                    <label>Phone Number *</label>
+                    <input type="tel" required placeholder="+256 700 000 000">
+                </div>
+                <div class="form-group">
+                    <label>Email Address *</label>
+                    <input type="email" required placeholder="your.email@example.com">
+                </div>
+                <div class="form-group">
+                    <label>Farm Location *</label>
+                    <input type="text" required placeholder="District, Village/Town">
+                </div>
+                <div class="form-group">
+                    <label>Farm Size (Acres)</label>
+                    <input type="number" min="0" step="0.1" placeholder="e.g., 5.5">
+                </div>
+                <div class="form-group">
+                    <label>Products You Supply *</label>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px;">
+                        <label style="display: flex; align-items: center; gap: 8px; font-weight: normal;">
+                            <input type="checkbox" value="mangoes"> Mangoes
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 8px; font-weight: normal;">
+                            <input type="checkbox" value="pineapples"> Pineapples
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 8px; font-weight: normal;">
+                            <input type="checkbox" value="bananas"> Bananas
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 8px; font-weight: normal;">
+                            <input type="checkbox" value="passion"> Passion Fruits
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 8px; font-weight: normal;">
+                            <input type="checkbox" value="avocados"> Avocados
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 8px; font-weight: normal;">
+                            <input type="checkbox" value="watermelons"> Watermelons
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 8px; font-weight: normal;">
+                            <input type="checkbox" value="papaya"> Papaya
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 8px; font-weight: normal;">
+                            <input type="checkbox" value="oranges"> Oranges
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Organic Certification *</label>
+                    <select required>
+                        <option value="">Select certification status</option>
+                        <option>Certified Organic</option>
+                        <option>In Process of Certification</option>
+                        <option>Practicing Organic (Not Yet Certified)</option>
+                        <option>Conventional (Willing to Convert)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Monthly Supply Capacity (kg)</label>
+                    <input type="number" min="0" placeholder="Estimated monthly supply in kg">
+                </div>
+                <div class="form-group">
+                    <label>Additional Information</label>
+                    <textarea rows="4" placeholder="Tell us about your farming practices, experience, special products, etc."></textarea>
+                </div>
+                <button type="submit" class="cta-button" style="width: 100%;">Submit Registration</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            document.getElementById('orderModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('orderModal').style.display = 'none';
+        }
+
+        function openSupplierModal() {
+            document.getElementById('supplierModal').style.display = 'flex';
+        }
+
+        function closeSupplierModal() {
+            document.getElementById('supplierModal').style.display = 'none';
+        }
+
+        function openAdminModal() {
+            document.getElementById('adminModal').style.display = 'flex';
+        }
+
+        function closeAdminModal() {
+            document.getElementById('adminModal').style.display = 'none';
+        }
+
+        window.onclick = function(e) {
+            const orderModal = document.getElementById('orderModal');
+            const supplierModal = document.getElementById('supplierModal');
+            const adminModal = document.getElementById('adminModal');
+            if (e.target === orderModal) {
+                closeModal();
+            }
+            if (e.target === supplierModal) {
+                closeSupplierModal();
+            }
+            if (e.target === adminModal) {
+                closeAdminModal();
+            }
+        }
+
+        document.getElementById('orderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your order! We will contact you shortly to confirm delivery details.');
+            closeModal();
+            this.reset();
+        });
+
+        document.getElementById('supplierForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your interest in becoming a supplier! Our team will review your application and contact you within 2-3 business days.');
+            closeSupplierModal();
+            this.reset();
+        });
+
+        document.getElementById('adminForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const username = this.querySelector('input[type="text"]').value;
+            const password = this.querySelector('input[type="password"]').value;
+            
+            // Demo credentials check (in production, this would be handled by backend)
+            if (username === 'admin' && password === 'admin123') {
+                alert('Login successful! Redirecting to admin dashboard...');
+                closeAdminModal();
+                this.reset();
+                // In production: window.location.href = '/admin/dashboard';
+            } else {
+                alert('Invalid credentials. Please try again.\n\nDemo credentials:\nUsername: admin\nPassword: admin123');
+            }
+        });
+
+        // Google Sign-In Handler
+        function handleGoogleSignIn() {
+            // Initialize Google Sign-In
+            if (typeof google !== 'undefined' && google.accounts) {
+                google.accounts.id.initialize({
+                    client_id: 'YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com', // Replace with your actual Google Client ID
+                    callback: handleGoogleResponse
+                });
+                
+                google.accounts.id.prompt(); // Show One Tap dialog
+            } else {
+                // Fallback demo for when Google API isn't loaded or configured
+                const mockGoogleAuth = confirm(
+                    '🔐 Google Authentication Demo\n\n' +
+                    'In production, this would:\n' +
+                    '1. Open Google Sign-In dialog\n' +
+                    '2. Verify your Google account\n' +
+                    '3. Send secure token to backend\n' +
+                    '4. Create authenticated session\n\n' +
+                    'Backend Requirements:\n' +
+                    '• Google OAuth 2.0 Client ID\n' +
+                    '• Server-side token verification\n' +
+                    '• Secure session management\n\n' +
+                    'Click OK to simulate successful Google login'
+                );
+                
+                if (mockGoogleAuth) {
+                    alert('✅ Google Sign-In Successful!\n\nLogged in as: demo.user@gmail.com\nRedirecting to admin dashboard...');
+                    closeAdminModal();
+                }
+            }
+        }
+
+        // Handle Google Sign-In Response
+        function handleGoogleResponse(response) {
+            // In production, send this token to your backend for verification
+            const credential = response.credential;
+            
+            // Decode JWT token to get user info (for demo purposes only)
+            try {
+                const payload = JSON.parse(atob(credential.split('.')[1]));
+                const userEmail = payload.email;
+                const userName = payload.name;
+                
+                // In production: Send credential to backend for verification
+                // fetch('/api/auth/google', {
+                //     method: 'POST',
+                //     headers: { 'Content-Type': 'application/json' },
+                //     body: JSON.stringify({ credential: credential })
+                // })
+                
+                alert(`✅ Google Sign-In Successful!\n\nWelcome ${userName}\nEmail: ${userEmail}\n\nRedirecting to admin dashboard...`);
+                closeAdminModal();
+                
+                // In production: window.location.href = '/admin/dashboard';
+            } catch (error) {
+                alert('❌ Authentication failed. Please try again.');
+            }
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Add scroll effect to navigation
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            const scrollTopBtn = document.getElementById('scrollTopBtn');
+            
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(255, 255, 255, 0.98)';
+                nav.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.15)';
+            } else {
+                nav.style.background = 'rgba(255, 255, 255, 0.95)';
+                nav.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+            }
+
+            // Show/hide scroll to top button
+            if (window.scrollY > 300) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+
+        // Scroll to top function
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Hamburger menu functionality
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', function() {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Close nav when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+            }
+        });
+
+        // Close nav function for links
+        function closeNav() {
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('active');
+        }
+    </script>
+</body>
+</html>
