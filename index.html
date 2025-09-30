@@ -93,14 +93,14 @@
         }
 
         .hero h1 {
-            font-size: 4rem;
+            font-size: clamp(2.5rem, 5vw, 4rem);
             margin-bottom: 20px;
             font-weight: 700;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
 
         .hero p {
-            font-size: 1.5rem;
+            font-size: clamp(1.2rem, 2.5vw, 1.5rem);
             margin-bottom: 30px;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
         }
@@ -112,7 +112,7 @@
             color: white;
             text-decoration: none;
             border-radius: 50px;
-            font-size: 1.2rem;
+            font-size: clamp(1rem, 2vw, 1.2rem);
             font-weight: 600;
             transition: all 0.3s ease;
             box-shadow: 0 8px 20px rgba(255, 107, 53, 0.4);
@@ -141,7 +141,7 @@
         }
 
         .logo {
-            font-size: 1.8rem;
+            font-size: clamp(1.5rem, 3vw, 1.8rem);
             font-weight: 700;
             color: #ff6b35;
         }
@@ -170,6 +170,7 @@
             flex-direction: column;
             cursor: pointer;
             gap: 5px;
+            padding: 10px;
         }
 
         .hamburger span {
@@ -194,20 +195,20 @@
 
         /* Products Section */
         .products {
-            padding: 100px 50px;
+            padding: 100px 20px;
             background: #f9f9f9;
         }
 
         .section-title {
             text-align: center;
-            font-size: 2.5rem;
+            font-size: clamp(2rem, 4vw, 2.5rem);
             margin-bottom: 20px;
             color: #2c3e50;
         }
 
         .section-subtitle {
             text-align: center;
-            font-size: 1.1rem;
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
             color: #666;
             margin-bottom: 60px;
             max-width: 600px;
@@ -217,10 +218,12 @@
 
         .cards-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
             max-width: 1400px;
             margin: 0 auto;
+            padding: 0 15px;
+            justify-items: center;
         }
 
         .card {
@@ -230,6 +233,8 @@
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
             cursor: pointer;
+            width: 100%;
+            max-width: 350px;
         }
 
         .card:hover {
@@ -267,7 +272,7 @@
 
         /* About Section */
         .about {
-            padding: 100px 50px;
+            padding: 100px 20px;
             background: white;
             display: flex;
             align-items: center;
@@ -293,9 +298,56 @@
             object-fit: cover;
         }
 
+        /* Testimonials Section */
+        .testimonials {
+            padding: 100px 20px;
+            background: #f9f9f9;
+            text-align: center;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 15px;
+            justify-items: center;
+        }
+
+        .testimonial-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            max-width: 350px;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .testimonial-role {
+            font-size: 0.9rem;
+            color: #999;
+        }
+
         /* Video Section */
         .video-section {
-            padding: 100px 50px;
+            padding: 100px 20px;
             background: #f9f9f9;
             text-align: center;
         }
@@ -316,19 +368,19 @@
 
         /* CTA Section */
         .cta-section {
-            padding: 100px 50px;
+            padding: 100px 20px;
             background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
             text-align: center;
             color: white;
         }
 
         .cta-section h2 {
-            font-size: 2.5rem;
+            font-size: clamp(2rem, 4vw, 2.5rem);
             margin-bottom: 20px;
         }
 
         .cta-section p {
-            font-size: 1.2rem;
+            font-size: clamp(1rem, 2vw, 1.2rem);
             margin-bottom: 30px;
         }
 
@@ -345,7 +397,7 @@
         footer {
             background: linear-gradient(135deg, #2c3e50 0%, #1a252f 100%);
             color: white;
-            padding: 60px 50px 30px;
+            padding: 60px 20px 30px;
         }
 
         .footer-content {
@@ -642,17 +694,18 @@
 
         /* Locations Section */
         .locations-section {
-            padding: 100px 50px;
+            padding: 100px 20px;
             background: white;
         }
 
         .locations-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
+            gap: 20px;
             max-width: 1400px;
             margin: 0 auto;
             margin-top: 40px;
+            justify-items: center;
         }
 
         .location-card {
@@ -670,6 +723,8 @@
             flex-direction: column;
             justify-content: flex-end;
             overflow: hidden;
+            width: 100%;
+            max-width: 350px;
         }
 
         .location-card::before {
@@ -732,13 +787,65 @@
             backdrop-filter: blur(5px);
         }
 
+        /* FAQ Section */
+        .faq-section {
+            padding: 100px 20px;
+            background: white;
+        }
+
+        .faq-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            cursor: pointer;
+        }
+
+        .faq-question h3 {
+            font-size: 1.2rem;
+            color: #2c3e50;
+        }
+
+        .faq-toggle {
+            font-size: 1.5rem;
+            color: #ff6b35;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-toggle.active {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            color: #666;
+            padding: 0 15px;
+        }
+
+        .faq-answer.active {
+            max-height: 200px;
+            padding: 15px;
+        }
+
         @media (max-width: 768px) {
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: clamp(2rem, 6vw, 2.5rem);
             }
 
             .hero p {
-                font-size: 1.2rem;
+                font-size: clamp(1rem, 3vw, 1.2rem);
             }
 
             nav {
@@ -747,13 +854,16 @@
 
             .hamburger {
                 display: flex;
+                align-items: center;
+                justify-content: center;
             }
 
             .nav-links {
                 position: fixed;
                 top: 70px;
                 right: -100%;
-                width: 70%;
+                width: 80%;
+                max-width: 300px;
                 height: calc(100vh - 70px);
                 background: rgba(255, 255, 255, 0.98);
                 backdrop-filter: blur(10px);
@@ -776,14 +886,21 @@
 
             .about {
                 flex-direction: column;
+                padding: 60px 20px;
             }
 
             .cards-container {
                 grid-template-columns: 1fr;
+                padding: 0 10px;
+            }
+
+            .location-card {
+                max-width: 100%;
             }
 
             .footer-content {
                 grid-template-columns: 1fr;
+                padding: 0 10px;
             }
 
             .scroll-top {
@@ -791,6 +908,31 @@
                 right: 20px;
                 width: 45px;
                 height: 45px;
+            }
+
+            .modal-content {
+                padding: 20px;
+                width: 95%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .card {
+                max-width: 100%;
+            }
+
+            .location-card {
+                padding: 30px 20px;
+                min-height: 240px;
+            }
+
+            .modal-content {
+                padding: 15px;
+            }
+
+            .cta-button {
+                padding: 14px 30px;
+                font-size: 1rem;
             }
         }
     </style>
@@ -807,6 +949,8 @@
             <li><a href="#home" onclick="closeNav()">Home</a></li>
             <li><a href="#products" onclick="closeNav()">Products</a></li>
             <li><a href="#about" onclick="closeNav()">About</a></li>
+            <li><a href="#testimonials" onclick="closeNav()">Testimonials</a></li>
+            <li><a href="#faq" onclick="closeNav()">FAQ</a></li>
             <li><a href="#contact" onclick="closeNav()">Contact</a></li>
             <li><a onclick="openSupplierModal(); closeNav();">Suppliers</a></li>
             <li><a onclick="openAdminModal(); closeNav();">Admin</a></li>
@@ -902,6 +1046,8 @@
                 </div>
             </div>
 
+            
+
             <div class="card">
                 <img src="https://images.unsplash.com/photo-1577234286642-fc512a5f8f11?w=400&h=300&fit=crop" alt="Strawberries" class="card-image">
                 <div class="card-content">
@@ -926,6 +1072,28 @@
         </div>
         <div class="about-image">
             <img src="https://images.unsplash.com/photo-1488459716781-31db52582fe9?w=600&h=600&fit=crop" alt="Fresh Fruits">
+        </div>
+    </section>
+
+    <section class="testimonials" id="testimonials">
+        <h2 class="section-title">What Our Customers Say</h2>
+        <p class="section-subtitle">Hear from our happy customers who love our organic produce</p>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <p class="testimonial-text">"The mangoes are incredibly sweet and fresh! I love that they're 100% organic and delivered right to my door."</p>
+                <p class="testimonial-author">Sarah K.</p>
+                <p class="testimonial-role">Kampala Resident</p>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-text">"KK Fresh Foods has the best pineapples I've ever tasted. The quality is unmatched, and delivery is always prompt."</p>
+                <p class="testimonial-author">James M.</p>
+                <p class="testimonial-role">Restaurant Owner</p>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-text">"I appreciate their commitment to organic farming. The bananas are always fresh and chemical-free!"</p>
+                <p class="testimonial-author">Aisha N.</p>
+                <p class="testimonial-role">Health Enthusiast</p>
+            </div>
         </div>
     </section>
 
@@ -1019,6 +1187,49 @@
         </div>
     </section>
 
+    <section class="faq-section" id="faq">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-subtitle">Find answers to common questions about our organic produce and services</p>
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>What does "certified organic" mean?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Certified organic means our fruits are grown without synthetic pesticides, herbicides, or fertilizers, following strict organic standards set by recognized certification bodies.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>How does same-day delivery work?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Place your order before 2 PM, and we'll deliver fresh organic fruits to your doorstep in Kampala on the same day, ensuring maximum freshness.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Can I become a supplier?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes! We welcome organic farmers to join our network. Fill out the supplier registration form, and our team will review your application.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>What payment methods do you accept?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>We accept Mobile Money (MTN & Airtel), card payments (Visa, Mastercard), and cash on delivery for your convenience.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="cta-section" id="contact">
         <h2>Ready to Order Organic Fresh Fruits?</h2>
         <p>Get 100% certified organic, pesticide-free fruits delivered to your doorstep today!</p>
@@ -1044,6 +1255,8 @@
                     <li><a href="#home">Home</a></li>
                     <li><a href="#products">Our Products</a></li>
                     <li><a href="#about">About Us</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#faq">FAQ</a></li>
                     <li><a onclick="openSupplierModal()">Become a Supplier</a></li>
                     <li><a href="#contact">Place an Order</a></li>
                 </ul>
@@ -1497,6 +1710,25 @@
             hamburger.classList.remove('active');
             navLinks.classList.remove('active');
         }
+
+        // FAQ toggle functionality
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', () => {
+                const answer = item.nextElementSibling;
+                const toggle = item.querySelector('.faq-toggle');
+                const isActive = answer.classList.contains('active');
+
+                // Close all other FAQ items
+                document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('active'));
+                document.querySelectorAll('.faq-toggle').forEach(t => t.classList.remove('active'));
+
+                // Toggle the clicked item
+                if (!isActive) {
+                    answer.classList.add('active');
+                    toggle.classList.add('active');
+                }
+            });
+        });
     </script>
 </body>
 </html>
